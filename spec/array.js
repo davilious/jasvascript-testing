@@ -158,5 +158,14 @@ describe("Voy a testear el objecto Array", function(){
 		})
 	});
 
+	describe("splice()", function(){
+
+		it("Cambia el contenido de un array, añadiendo nuevo elementos mientras elimina otros", function(){
+			var arr = [1,2,3,4];
+			var remove = arr.splice(3,1,"cuatro");
+			expect(arr.join(',')).toBe("1,2,3,cuatro");
+		})
+	})
+
 
 });
