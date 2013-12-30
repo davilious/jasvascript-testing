@@ -58,11 +58,74 @@ describe("Voy a testear el objecto Array", function(){
 		});
 		it("Además cambiaría la longuitud", function(){		
 			var arr = [1,2,3];
+			expect(arr.length).toBe(3);
 			arr.shift()
 			expect(arr.length).toBe(2);
 		});	
 	});
 
+	describe("indexOf()", function(){
 
+		it("Devuelve el primer indice coincidente", function(){		
+			var arr = [1,2,3];
+			expect(arr.indexOf(1) != -1 ).toBe(true);
+		});
+		it("Si no encuentra devolverá -1", function(){		
+			var arr = [1,2,3];
+			expect(arr.indexOf(5) == -1 ).toBe(true);
+		});
+ 		it("Si hay dos elementos devolverá el primer indice", function(){		
+			var arr = [1,1,2,2];
+			expect(arr.indexOf(2)).toBe(2);
+		});		
+	});
+
+	describe("join()", function(){
+		it("Debe convertir el array en un string usando el parámetro como separador", function(){
+			expect(arr.join('-')).toBe("1-2-3-4")
+		})
+	})
+
+	describe("pop()", function(){
+
+		it("Elimina el último elemento", function(){
+			arr.pop();
+			expect(arr.length).toBe(3);
+		});
+		it("Y lo devuelve", function(){
+			expect([1,2,3,4].pop()).toBe(4)
+		});
+	});
+
+	describe("push()", function(){
+
+		it("Inserta un nuevo elemento en array", function(){
+			arr.push(5);
+			expect(arr.length).toBe(4);
+		});
+
+	});
+
+	describe("reduce()", function(){
+
+		it("Debe aplicar una función a cada valor del array de izquierda a derecha", function(){
+			var arr = [1,2,3,-1];
+			var sum = function(a, b){
+				return a + b;
+			};
+			expect(arr.reduce(sum)).toBe(5);
+		});
+	})
+
+	describe("reduceRight()", function(){
+
+		it("Debe aplicar una función a cada valor del array de derecha a izquierda", function(){
+			var arr = [1,-1];
+			var sum = function(a, b){
+				return a + b;
+			};
+			expect(arr.reduceRight(sum)).toBe(0);
+		});
+	})
 
 })

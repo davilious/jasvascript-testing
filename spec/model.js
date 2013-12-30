@@ -17,4 +17,4 @@ describe("Model Revealing Pattern", function(){
 	it("lastname should not be accesible", function(){
 		expect(person.__testonly__.lastName()).toBe("Davila");
 	});
-})
+});
