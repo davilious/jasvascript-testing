@@ -126,6 +126,37 @@ describe("Voy a testear el objecto Array", function(){
 			};
 			expect(arr.reduceRight(sum)).toBe(0);
 		});
-	})
+	});
 
-})
+	describe("reverse()", function(){
+
+		it("El último elemento del array será el primero y el primero el último", function(){
+			var arr = ['a','b','c'];
+			expect(arr.reverse().join(',')).toBe("c,b,a");
+		});
+	});
+
+	describe("slice()", function(){
+
+		it("Devuelve un nuevo array con los límites pasados por parámetro", function(){
+			var arr = ['a','b','c','d','e'];
+			expect(arr.splice(1,3).join(',')).toBe("b,c,d");
+		});
+	});
+
+
+	describe("sort()", function(){
+
+		it("Ordena array, por defecto ordena alfabéticamente", function(){
+			var arr = ['b','a','d','c','e'];
+			expect(arr.sort().join(',')).toBe("a,b,c,d,e");
+		});
+		it("o se puede ordenar por un criterio definido", function(){
+			expect([1,4,2,5,3].sort(function(a,b){
+				return a < b;
+			}).join(',')).toBe("5,4,3,2,1");
+		})
+	});
+
+
+});
